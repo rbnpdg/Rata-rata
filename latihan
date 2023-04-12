@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct mahasiswa{
+	string nama, npm;
+};
+
+class mahasiswa2{
+	public:
+		string nama, npm;
+		
+		void perkenalan(){
+			cout << nama << endl << npm;
+		}
+};
+
+int main() {
+	
+	mahasiswa sw;
+	mahasiswa2 sw2;
+	
+	getline(cin, sw.nama);
+	getline(cin, sw.npm);	
+	
+	getline(cin, sw2.nama);
+	getline(cin, sw2.npm);	
+	sw2.perkenalan();
+	cout << endl << sw.nama << endl << sw.npm;
+	
+}
