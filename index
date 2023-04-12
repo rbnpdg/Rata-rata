@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+//mendefinisikan struct Nilai yang digunakan untuk menyimpan nilai dan jumlah elemen data yang ada
+struct Nilai {
+    double nilai;
+    int jumlah;
+};
+
+//mendefinisikan fungsi hitungRataRata. Fungsi ini menerima dua parameter, 
+//yaitu nilai bertipe Nilai* (pointer ke variabel nilai) dan jumlah bertipe 
+//int yang merepresentasikan jumlah elemen data yang akan dihitung rata-ratanya. 
+//Fungsi ini melakukan loop pada setiap elemen data nilai dan menambahkan nilainya 
+//pada variabel total. Setelah itu, fungsi akan mengembalikan nilai rata-rata.
+double hitungRataRata(Nilai* nilai, int jumlah) {
+    double total = 0;
+    for (int i = 0; i < jumlah; i++) {
+        total += nilai[i].nilai;
+    }
+    return total / jumlah;
+}
+
+/*Fungsi main digunakan sebagai program utama yang akan dijalankan. 
+Pertama-tama, program akan meminta pengguna untuk memasukkan jumlah 
+data yang akan dimasukkan. Selanjutnya, program akan mengalokasikan 
+ruang memori untuk menyimpan data menggunakan operator new. Data 
+kemudian dimasukkan pada setiap elemen variabel nilai dan jumlah 
+elemen disimpan pada variabel jumlah. Setelah itu, program akan 
+memanggil fungsi hitungRataRata untuk menghitung rata-rata dari data 
+yang dimasukkan. Hasil perhitungan rata-rata akan disimpan pada 
+variabel rataRata. Selanjutnya, program akan membuat string pesan 
+yang berisi inform*/
+
+int main() {
+    int jumlah;
+    cout << "Masukkan jumlah nilai: ";
+    cin >> jumlah;
+
+    Nilai* nilai = new Nilai[jumlah];
+    for (int i = 0; i < jumlah; i++) {
+        cout << "Masukkan nilai ke-" << i+1 << ": ";
+        cin >> nilai[i].nilai;
+        nilai[i].jumlah = jumlah;
+    }
+
+    double rataRata = hitungRataRata(nilai, jumlah);
+
+    CString pesan1 = "Nilai rata-rata adalah: ";
+    CString pesan2 = to_string(rataRata);
+    CString pesan3 = "\nTekan tombol apapun untuk keluar dari program.";
+
+    CString pesan = pesan1 + pesan2 + pesan3;
+    cout << pesan;
+
+    cin.ignore();
+    cin.get();
+
+    delete[] nilai;
+    return 0;
+}
