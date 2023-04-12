@@ -1,3 +1,10 @@
+/*Pointer adalah variabel yang menyimpan alamat variabel lain dalam memori komputer.
+Dalam penggunaan pointer di bahasa C++ digunakan dua operator yaitu Address-of
+Operator (&) dan Dereference operator (*). Pointer berkaitan dengan Array, tetapi pointer
+membawa banyak keuntungan ketimbang Array. Operator & digunakan untuk
+mendapatkan alamat memori dari variabel, sedangkan operator * digunakan untuk
+mendapatkan nilai yang disimpan di alamat yang ditunjuk oleh pointer*/
+
 #include <iostream>
 
 int main() {
