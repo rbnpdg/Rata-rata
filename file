@@ -1,3 +1,7 @@
+Pemrograman terstruktur adalah cara menulis program komputer dengan cara yang terorganisir dan logis, 
+dengan menggunakan struktur kendali seperti if/else, loop, dan modularitas untuk mempermudah pemahaman 
+dan pengembangan program. Pendekatan ini bertujuan untuk membuat program menjadi lebih mudah dipahami dan dikelola.
+
 #include <iostream>
 #include <fstream>
 
