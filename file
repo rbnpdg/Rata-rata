@@ -2,6 +2,10 @@ Pemrograman terstruktur adalah cara menulis program komputer dengan cara yang te
 dengan menggunakan struktur kendali seperti if/else, loop, dan modularitas untuk mempermudah pemahaman 
 dan pengembangan program. Pendekatan ini bertujuan untuk membuat program menjadi lebih mudah dipahami dan dikelola.
 
+Fungsi dalam bahasa pemrograman C++ adalah blok kode yang terpisah yang dapat dipanggil dari bagian lain dari program. 
+Fungsi memiliki satu atau lebih pernyataan yang menyediakan suatu tindakan tertentu ketika dipanggil, dan dapat 
+mengambil nol atau lebih argumen sebagai input dan menghasilkan nilai sebagai output.
+
 #include <iostream>
 #include <fstream>
 
