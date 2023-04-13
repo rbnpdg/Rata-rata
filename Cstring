@@ -1,0 +1,39 @@
+/*C-string adalah urutan karakter yang disimpan dalam blok memori berurutan seperti array
+dan diakhiri dengan karakter Null ('\0'). Karakter string dapat mencakup huruf, angka, dan
+simbol khusus seperti +, –,*, [],(), dll., tetapi bukan escape character.*/
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main(){
+	
+	char nama[15];
+	char npm[10];
+	
+	//fungsi input
+	//cin.get() dan cin.ignore()
+	cin.get(nama, 15);
+	cin.ignore(); //agar bisa input npm
+	cin.get(npm, 10);
+	
+	cout << nama << endl << npm;
+		
+		//cin.putback()
+	char karakter;
+	
+	while(cin.get(karakter)){
+		if(karakter == 'a'){
+			cin.putback('x');
+		} else {
+			cout << karakter;
+		}
+	}
+	
+	//fungsi manipulasi
+	//strlen()
+	char str[] = {'I', 'L', 'K', 'O', 'M', 'P', '\0'};
+	
+	cout << str << endl << strlen(str);
+		
+}
