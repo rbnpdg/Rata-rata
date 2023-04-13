@@ -1,0 +1,303 @@
+Buatlah sebuah fungsi dengan nama vPtr. Fungsi ini memiliki 2 parameter:
+1. Parameter pertama berupa void pointer yang nantinya akan diisi nilai integer ataupun char.
+2. Parameter kedua adalah sebuah variabel char yang akan diisi dengan tipe perintah.
+
+Ketentuan:
+1. Parameter char pada fungsi ini hanya akan diisi dengan huruf i atau c
+2. Jika char berisi huruf "i" maka pointer akan berisi sebuah integer, maka tampilkan 'ing' sebanyak nilai dalam pointer.
+3. Jika char berisi hurf "c" maka pointer akan berisi sebuah char, maka tampilkan 'ceng' diikuti karakter yang ada pada pointer dipisahkan dengan spasi
+
+void vPtr(void* p, char type)
+{
+    if (type == 'i')
+    {
+        for (int i = 0; i < *(int *)p;i++) {
+            cout << "ing" << endl;
+        }
+    }
+    else if (type == 'c')
+    {
+        cout << "ceng " << *(char*)p << endl;
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buatlah sebuah Program menghitung perkalian 2 matriks. Program harus bisa mengkalikan 2 matriks dengan kondisi kolom matriks ke-1 harus sama dengan baris matriks ke-2. Apabila kondisi tersebut tidak memenuhi maka akan mengeluarkan “Perkalian matriks tidak dapat dilakukan”.
+
+Input: • Bilangan Integer apa saja 
+
+Output: • Menampilkan hasil perkalian 2 matriks
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int matriks1[20][20], matriks2[20][20], kali[20][20];
+    int row1, col1, row2, col2;
+
+    cin >> row1;
+	cin >> col1;
+	
+    for(int i = 0; i < row1; i++){
+        for(int j = 0; j < col1; j++){
+            cin >> matriks1[i][j];
+        }
+    }
+    
+    cin >> row2;
+    cin >> col2;
+    
+    if(col1 != row2){
+        cout << "Perkalian matriks tidak dapat dilakukan\n";
+        return 0;
+    }
+
+    for(int i = 0; i < row2; i++){
+        for(int j = 0; j < col2; j++){
+            cin >> matriks2[i][j];
+        }
+    }
+
+    for(int i = 0; i < row1; i++){
+        for(int j = 0; j < col2; j++){
+            kali[i][j] = 0;
+            for(int k = 0; k < col1; k++){
+                kali[i][j] += matriks1[i][k] * matriks2[k][j];
+            }
+        }
+    }
+    for(int i = 0; i < row1; i++){
+        for(int j = 0; j < col2; j++){
+            cout << kali[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+Buatlah sebuah Fungsi menghitung baris dan deret aritmatika menggunakan Prosedur. Program memiliki dua buah prosedur dengan masing-masing memiliki tiga parameter yaitu nilai awal, selisih, dan jumlah suku. Bilangan dalam baris merupakan bilangan positif. Apabila terdapat bilangan negatif (kurang dari nol) dalam baris, program akan menampilkan “Not Found” lalu berhenti.
+Input : 
+- Input dapat berupa bilangan integer bernilai apa saja 
+Output :
+- baris pertama menampilkan baris aritmatika dipisahkan spasi
+ - baris kedua menampilkan deret aritmatika
+ 
+void deret(int a, int d, int n) {
+    int has = (n*(2 * a + (n - 1) * d))/2;
+    cout<<has;
+}
+
+void baris(int a, int d, int n) {
+    int temp = 0;
+    for (int i = 1; i <= n; i++) {
+        temp = a + (i-1) * d;
+        if(temp>=0){
+        cout << temp << " ";
+        }
+        else{
+        cout<<"Not Found";
+        exit(0);
+        }
+    }
+    cout << endl;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buatlah Program yang memiliki Fungsi dengan nama jarak untuk menghitung jarak antara dua titik (x1,y1) dan (x2,y2). Fungsi tersebut memiliki satu parameter bertipe Float, dimana rumus menghitung jarak adalah D = [( x2 – x1 )^2 + (y2 – y1)^2 ]^1/2
+
+For example:
+
+Input	            Result
+0 0 3 4             5
+23 24 21 28       5.83095
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+float jarak(float x[]){
+	return sqrt(pow(x[3]-x[0],2) + pow(x[1]-x[2],2));
+}
+
+int main(){
+	float arr[4];
+	
+	for(int i=0; i<4; i++){
+		cin>>arr[i];
+	}
+	
+	cout<<jarak(arr);
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buat fungsi dengan nama jarak untuk menghitung jarak antara dua titik (x1,y1) dan (x2,y2).
+dimana rumus menghitung jarak adalah 
+D = [( x2 – x1 )2 + (y2 – y1)2] 1/2
+Constraint:
+x1, x2, y1, y2 € Riil
+Prototype Fungsi:
+double jarak(double, double, double, double);
+
+For example:
+
+Test    :cout<<jarak(0,0,3,4);
+Input   :cout<<jarak(0,0,3,4);
+Result  :5
+
+double jarak(double x1, double y1, double x2, double y2){
+   return sqrt(pow(x1-x2,2)+pow(y1-y2,2));   //pow fungsi perpangkatan sedangkan sqrt() akar kuadrat
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buat fungsi void dengan nama findMax tanpa parameter, fungsi membaca input dari keyboard berupa integer N, dan N data.  Lalu fungsi akan mencetak nilai terbesar dari data yang diinputkan.
+Format Input
+Baris pertama berupa integer N
+N Baris berikutnya merupakan data dengan tipe integer
+Format Output
+Output berupa nilai terbesar data yang diinputkan
+For example:
+
+Test    : findMax();
+Input   : 4
+          3 2 1 12
+Result  : 12
+
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+void findMax() {
+    int jumlah;
+    cin >> jumlah;
+
+    int nilaimaks = numeric_limits<int>::min();
+
+    for (int i = 0; i < jumlah; i++) {
+        int angka;
+     	cin >> angka;
+        if (angka > nilaimaks) {
+            nilaimaks = angka;
+        }
+    }
+    cout << nilaimaks << endl;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buat fungsi void dengan nama hitungRerata tanpa parameter, fungsi membaca input 
+dari keyboard berupa integer N, dan N data.  Lalu fungsi akan mencetak nilai 
+rata-rata dari data yang diinputkan.
+
+Format Input
+Baris pertama berupa integer N
+N Baris berikutnya merupakan data dengan tipe pecahan
+Format Output
+Output berupa nilai rata-rata data yang diinputkan
+For example:
+
+Test    :hitungRerata();
+Input   :4
+        3 2 1 12
+Result  :4
+
+#include <iostream>
+
+using namespace std;
+
+void hitungRerata() {
+    int jumlah;
+    double total = 0.0;
+    cin >> jumlah;
+
+    for (int i = 0; i < jumlah; i++) {
+        double angka;
+        cin >> angka;
+        total += angka;
+    }
+
+    double rerata = total / jumlah;
+	cout << rerata;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buat fungsi dengan nama tukar, dengan 3 parameter bilangan bulat a, b, dan c. 
+Fungsi ini akan mengubah nilai tiap parameter dengan cara menukar antara satu 
+dengan lainnya sehingga a < b < c. 
+
+For example:
+
+Test    :int a=114,b=22,c=13;
+        tukar(a,b,c);
+        cout<<a<<" "<<b<<" "<<c<<endl;
+Input   :int a=114,b=22,c=13;
+        tukar(a,b,c);
+        cout<<a<<" "<<b<<" "<<c<<endl;
+Result  :13 22 114
+
+#include <iostream>
+
+using namespace std;
+
+void tukar(int& a, int& b, int& c) {
+    if (a > b) {
+        swap(a, b);
+    }
+    if (a > c) {
+        swap(a, c);
+    }
+    if (b > c) {
+        swap(b, c);
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buat fungsi dengan nama fib yang memiliki 1 parameter integer, fungsi ini untuk menghitung bilangan fibonanci  f(n) = f(n-2) + f(n-1)
+
+dimmana f(0) = 0, dan f(1) =1
+
+Contoh 
+
+fib(5) = f(3) + f(4)
+f(4) = f(2) + f(1)
+f(3) = f(1) + f(2)
+f(2) = f(0) + f(1)
+f(5) =  5
+
+For example:
+
+Test    :cout<<fib(5);
+Input   :cout<<fib(5);
+Result  :5
+
+#include <iostream>
+
+using namespace std;
+
+int fib(int angka) {
+    if (angka == 0) {
+        return 0;
+    } else if (angka == 1) {
+        return 1;
+    } else {
+        return fib(angka-2) + fib(angka-1);
+    }
+}
+
+atau
+
+int fib (int n){
+    if (n==0) return 0;
+    if (n==1) return 1;
+    return fib(n-2) + fib(n-1);
+}
